@@ -1,0 +1,8 @@
+Extrair da PubMud
+
+var doi = document.getElementsByTagName('pre')[0].textContent.split(" ").join("").split("doi:");for(var i = 0; i < doi.length; i++){doi[i] = doi[i].split("PMC")[0].split('\n').join("");doi[i] = doi[i].substr(0, doi[i].length-1);}document.getElementsByTagName('pre')[0].style.display = 'none'; var div = document.createElement('div'); div.innerHTML = '<p><strong>Extraídos '+(doi.length-2)+' resultados.<br><small>Copie e cole os dados abaixo em um extrator de DOIs.</small></strong></p>'+doi.join("<br>");document.body.appendChild(div);
+
+
+Extrair da IEEE
+
+var x = document.body.textContent.split(" ").join("").split("doi={");var doi = []; for(var i = 0; i < x.length; i++){doi.push(x[i].split('},\nIS')[0])}document.body.innerHTML='';document.body.appendChild(document.createElement('div'));document.getElementsByTagName('div')[0].innerHTML = "<p><strong>Extraídos "+(doi.length-2)+" resultados.<br><small>Copie e cole os dados abaixo em um extrator de DOIs.</small></strong></p>"+doi.join("<br>");
